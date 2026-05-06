@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  const origin = request.nextUrl.origin;
+  const origin = process.env.NEXT_PUBLIC_APP_URL ||request.nextUrl.origin;
   const redirectUri = buildRedirectUri(origin);
   const state = randomBytes(24).toString("hex");
 

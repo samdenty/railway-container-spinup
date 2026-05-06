@@ -155,5 +155,5 @@ export async function getValidAccessToken(): Promise<{
 }
 
 export function buildRedirectUri(origin: string): string {
-  return `${origin}/api/auth/callback`;
+  return new URL(`/api/auth/callback`,origin).toString();
 }
